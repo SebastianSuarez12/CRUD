@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuentas Bancarias</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Gestión de Cuentas Bancarias</h1>
+    <a href="/create">Crear nueva cuenta</a>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Número de Cuenta</th>
+                <th>Titular</th>
+                <th>Saldo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for account in accounts %}
+            <tr>
+                <td>{{ account.id }}</td>
+                <td>{{ account.account_number }}</td>
+                <td>{{ account.account_holder }}</td>
+                <td>{{ account.balance }}</td>
+                <td>
+                    <a href="/account/{{ account.id }}">Ver</a>
+                    <a href="/update/{{ account.id }}">Editar</a>
+                    <form action="/delete/{{ account.id }}" method="POST" style="display:inline;">
+                        <button type="submit">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

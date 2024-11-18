@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de la Cuenta</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Detalles de la Cuenta</h1>
+    <p><strong>Número de Cuenta:</strong> {{ account.account_number }}</p>
+    <p><strong>Titular:</strong> {{ account.account_holder }}</p>
+    <p><strong>Saldo:</strong> {{ account.balance }}</p>
+    <a href="/">Volver</a>
+</body>
+</html>
